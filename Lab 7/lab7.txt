@@ -1,0 +1,606 @@
+/***************************************
+* EECS2031M Lab 7
+* Author: Hussain, Sayeda
+* Email: sayedah@my.yorku.ca
+* eecs_username: sayedah
+* York Student #: 215427214
+****************************************/
+
+------------------------------------------ Part I ------------------------------------------
+***NOTE: I labelled my directory 'lab7a'/'lab7b' instead of 'lab8a'/'lab8b'***
+
+1. sh-4.2$ cp /eecs/dept/course/2019-20/W/2030tmp/xxx ./
+
+2. 	sh4.2$ ls
+	xxx
+
+3. sh-4.2$ cp /eecs/dept/course/2019-20/W/2030tmp/xFile? ./
+
+4. 	sh-4.2$ ls xFile*
+	xFile2 xFile3
+	sh-4.2$ ls
+	xFile2 xFile3 xxx
+
+5. sh-4.2$ mv xxx xFile1
+
+6.a) 	sh-4.2$ echo $?
+	0
+  b)	sh-4.2$ ls
+	xFile1 xFile2 xFile3
+
+7.a) sh-4.2$ mkdir 2020W
+  b) sh-4.2$ mkdir ./2020W/lab7a
+
+8. 	sh-4.2$ ls -R 2020W
+	2020W:
+	lab7a
+
+	2020W/lab7a:
+
+9. sh-4.2$ mv xFile1 ./2020W/lab7a
+
+10. sh-4.2$ mv xFile? ./2020W/lab7a
+
+11.	sh-4.2$ ls -l -R 2020W 
+	./2020W:
+	total 4
+	drwx------ 2 sayedah ugrad 64 Mar 30 16:46 lab7a
+
+	./2020W/lab7a: 
+	total 12
+	-rwx------ 1 sayedah ugrad 145 Mar 30 16:39 xFile1
+	-rwx------ 1 sayedah ugrad 145 Mar 30 16:34 xFile2
+	-rwx------ 1 sayedah ugrad  87 Mar 30 16:34 xFile3
+
+12.a) sh-4.2$ cd 2020W
+   b) 	sh-4.2$ pwd
+	/cs/home/sayedah/eecs2031/Lab7/2020W
+
+13.a)	sh-4.2$ ls -l lab7a
+        total 12
+	-rwx------ 1 sayedah ugrad 145 Mar 30 16:39 xFile1
+	-rwx------ 1 sayedah ugrad 145 Mar 30 16:34 xFile2
+	-rwx------ 1 sayedah ugrad  87 Mar 30 16:34 xFile3
+   b) 	sh-4.2$ ls -ld lab7a
+	drwx------ 2 sayedah ugrad 64 Mar 30 16:46 lab7a
+
+14. sh-4.2$ cp -r lab7a lab7b
+
+15. 	sh-4.2$ ls -l *
+	lab7a:
+	total 12
+	-rwx------ 1 sayedah ugrad 145 Mar 30 16:39 xFile1
+	-rwx------ 1 sayedah ugrad 145 Mar 30 16:34 xFile2
+	-rwx------ 1 sayedah ugrad  87 Mar 30 16:34 xFile3
+
+	lab7b:
+	total 12
+	-rwx------ 1 sayedah ugrad 145 Mar 31 09:41 xFile1
+	-rwx------ 1 sayedah ugrad 145 Mar 31 09:41 xFile2
+	-rwx------ 1 sayedah ugrad  87 Mar 31 09:41 xFile3
+
+16. sh-4.2$ rmdir lab7a
+    rmdir: failed to remove ‘lab7a’: Directory not empty
+  Ans -> The rmdir utility is not very effective unless the directory itself is empty 
+
+17. 	sh-4.2$ echo $?
+	1
+
+18. sh-4.2$ rm -r lab7a
+
+19.a) 	sh-4.2$ echo $?
+	0
+   b)	sh-4.2$ ls lab7a
+	ls: cannot access lab7a: No such file or directory
+
+20. sh-4.2$ mv ./lab7b/xFile1 .
+
+21.	sh-4.2$ find . -name "xFile*"
+	./lab7b/xFile2
+	./lab7b/xFile3
+	./xFile1
+
+22. mv lab7b lab7working
+
+23.a) sh-4.2$ cd lab7working
+   b) 	sh-4.2$ pwd
+	/cs/home/sayedah/eecs2031/Lab7/2020W/lab7working
+
+24. sh-4.2$ mv ../xFile1 .
+
+25. sh-4.2$ ls -l lab7working
+    total 12
+    -rwx------ 1 sayedah ugrad 145 Mar 31 09:41 xFile1
+    -rwx------ 1 sayedah ugrad 145 Mar 31 09:41 xFile2
+    -rwx------ 1 sayedah ugrad  87 Mar 31 09:41 xFile3
+
+26. 	sh-4.2$ cat
+	Hi
+	Hi
+	There
+	There
+
+27.a) 	sh-4.2$ cat > temp
+	Hi
+	There
+   b) 	sh-4.2$ ls
+	temp  xFile1  xFile2  xFile3
+   c) 	sh-4.2$ cat < temp
+	Hi
+	There
+
+28. rm temp
+
+29. sh-4.2$ cat < xFile1
+    John Smith  1222 26 Apr 1956
+    Tony Jones  2152 20 Mar 1950
+    John Duncan 2    20 Jan 1966
+    Larry Jones 3223 20 Dec 1946
+    Lisa Sue    1222 4  Jul 1980
+
+30. sh-4.2$ more xFile?
+    ::::::::::::::
+    xFile1
+    ::::::::::::::
+    John Smith  1222 26 Apr 1956
+    Tony Jones  2152 20 Mar 1950
+    John Duncan 2    20 Jan 1966
+    Larry Jones 3223 20 Dec 1946
+    Lisa Sue    1222 4  Jul 1980
+    ::::::::::::::
+    xFile2
+    ::::::::::::::
+    John Smith  1222 26 Apr 1956
+    Tony Jones  2152 20 Mar 1950
+    John Duncan 2    20 Jan 1966
+    Larry Jones 3223 20 Dec 1946
+    Lisa Sue    1222 4  Jul 1980
+    ::::::::::::::
+    xFile3
+    ::::::::::::::
+    John Smith  1222 26 Apr 1956
+    John Duncan 2    20 Jan 1966
+    Larry Jones 3223 20 Dec 1946
+
+31. sh-4.2$ wc -l xFile1
+    5 xFile1
+
+32. sh-4.2$ head -2 xFile1
+    John Smith  1222 26 Apr 1956
+    Tony Jones  2152 20 Mar 1950
+
+33. sh-4.2$ tail -3 xFile2
+    John Duncan 2    20 Jan 1966
+    Larry Jones 3223 20 Dec 1946
+    Lisa Sue    1222 4  Jul 1980
+
+34.a) sh-4.2$ cmp xFile1 xFile2
+   b) 	sh-4.2$ echo $?
+	0
+
+35.a) sh-4.2$ diff xFile1 xFile2 
+   b) 	sh-4.2$ echo $?
+	0
+
+36.a) sh-4.2$ diff xFile2 xFile3
+      2d1
+      < Tony Jones  2152 20 Mar 1950
+      5d3
+      < Lisa Sue    1222 4  Jul 1980
+   b) 	sh-4.2$ echo $?
+	1
+
+37.a) sh-4.2$ cmp xFile2 xFile3
+      xFile2 xFile3 differ: byte 30, line 2
+   b) 	sh-4.2$ echo $?
+	1
+
+38.a) sh-4.2$ cat xFile? > xFile123
+   b) 	sh-4.2$ more xFile123
+	John Smith  1222 26 Apr 1956
+	Tony Jones  2152 20 Mar 1950
+	John Duncan 2    20 Jan 1966
+	Larry Jones 3223 20 Dec 1946
+	Lisa Sue    1222 4  Jul 1980
+	John Smith  1222 26 Apr 1956
+	Tony Jones  2152 20 Mar 1950
+	John Duncan 2    20 Jan 1966
+	Larry Jones 3223 20 Dec 1946
+	Lisa Sue    1222 4  Jul 1980
+	John Smith  1222 26 Apr 1956
+	John Duncan 2    20 Jan 1966
+	Larry Jones 3223 20 Dec 1946
+
+39. sh-4.2$ sort xFile123
+    John Duncan 2    20 Jan 1966
+    John Duncan 2    20 Jan 1966
+    John Duncan 2    20 Jan 1966
+    John Smith  1222 26 Apr 1956
+    John Smith  1222 26 Apr 1956
+    John Smith  1222 26 Apr 1956
+    Larry Jones 3223 20 Dec 1946
+    Larry Jones 3223 20 Dec 1946
+    Larry Jones 3223 20 Dec 1946
+    Lisa Sue    1222 4  Jul 1980
+    Lisa Sue    1222 4  Jul 1980
+    Tony Jones  2152 20 Mar 1950
+    Tony Jones  2152 20 Mar 1950
+
+40. sh-4.2$ sort xFile123 | uniq
+    John Duncan 2    20 Jan 1966
+    John Smith  1222 26 Apr 1956
+    Larry Jones 3223 20 Dec 1946
+    Lisa Sue    1222 4  Jul 1980
+    Tony Jones  2152 20 Mar 1950
+
+41. sh-4.2$ sort xFile123 | uniq > xFile123compact
+
+42. sh-4.2$ cat xFile123compact
+    John Duncan 2    20 Jan 1966
+    John Smith  1222 26 Apr 1956
+    Larry Jones 3223 20 Dec 1946
+    Lisa Sue    1222 4  Jul 1980
+    Tony Jones  2152 20 Mar 1950
+
+43. sh-4.2$ chmod u-r xFile1
+    sh-4.2$ ls -l xFile1
+    --wx------ 1 sayedah ugrad 145 Mar 31 09:41 xFile1
+    sh-4.2$ cat xFile1
+    cat: xFile1: Permission denied
+  Ans -> We've removed our ability as the owner/user to read the file
+
+44. sh-4.2$ chmod 775 xFile1
+    sh-4.2$ ls -l xFile1
+    -rwxrwxr-x 1 sayedah ugrad 145 Mar 31 09:41 xFile1
+  Ans -> Using octal numbers, we've turned on all permissions for the owner and group 
+	(7 = 111), and leaving others unable to write onto the file (5 = 101)
+
+45.  sh-4.2$ chmod 757 xFile123compact
+     sh-4.2$ ls -l xFile123compact
+    -rwxr-xrwx 1 sayedah ugrad 145 Mar 31 10:28 xFile123compact
+
+46. 	sh-4.2$ cat >> xFile1
+	this is a xxx new line
+	sh-4.2$ cat xFile1
+	John Smith  1222 26 Apr 1956
+	Tony Jones  2152 20 Mar 1950
+	John Duncan 2    20 Jan 1966
+	Larry Jones 3223 20 Dec 1946
+	Lisa Sue    1222 4  Jul 1980
+	this is a xxx new line
+
+47. sh-4.2$ chmod u-w xFile1
+    sh-4.2$ cat >> xFile1
+    sh: xFile1: Permission denied
+  Ans -> We've removed our ability as the owner/user to write to the file
+
+48.a) sh-4.2$ ls -l -t
+    total 20
+    -r-xrwxr-x 1 sayedah ugrad 168 Mar 31 11:02 xFile1
+    -rwxr-xrwx 1 sayedah ugrad 145 Mar 31 10:28 xFile123compact
+    -rw------- 1 sayedah ugrad 377 Mar 31 10:20 xFile123
+    -rwx------ 1 sayedah ugrad  87 Mar 31 09:41 xFile3
+    -rwx------ 1 sayedah ugrad 145 Mar 31 09:41 xFile2
+
+   b) sh-4.2$ ls -l -t -r
+    total 20
+    -rwx------ 1 sayedah ugrad 145 Mar 31 09:41 xFile2
+    -rwx------ 1 sayedah ugrad  87 Mar 31 09:41 xFile3
+    -rw------- 1 sayedah ugrad 377 Mar 31 10:20 xFile123
+    -rwxr-xrwx 1 sayedah ugrad 145 Mar 31 10:28 xFile123compact
+    -r-xrwxr-x 1 sayedah ugrad 168 Mar 31 11:02 xFile1
+
+49.a) sh-4.2$ ls -l -S
+      total 20
+      -rwxrwxr-x 1 sayedah ugrad  377 Mar 31 10:20 xFile123.Lab7
+      -rwxrwxr-x 1 sayedah ugrad  168 Mar 31 11:02 xFile1.Lab7
+      -rwxr-xrwx 1 sayedah ugrad  145 Mar 31 10:28 xFile123compact.Lab7
+      -rwxrwxr-x 1 sayedah ugrad  145 Mar 31 09:41 xFile2.Lab7
+      -rwxrwxr-x 1 sayedah ugrad   87 Mar 31 09:41 xFile3.Lab7
+   b) sh-4.2$ ls -l -S -r
+      total 20
+      -rwxrwxr-x 1 sayedah ugrad   87 Mar 31 09:41 xFile3
+      -rwxrwxr-x 1 sayedah ugrad  145 Mar 31 09:41 xFile2
+      -rwxr-xrwx 1 sayedah ugrad  145 Mar 31 10:28 xFile123compact
+      -rwxrwxr-x 1 sayedah ugrad  168 Mar 31 11:02 xFile1
+      -rwxrwxr-x 1 sayedah ugrad  377 Mar 31 10:20 xFile123
+
+50. sh-4.2$ sort -k3 xFile123compact
+    John Smith  1222 26 Apr 1956
+    Lisa Sue    1222 4  Jul 1980
+    Tony Jones  2152 20 Mar 1950
+    John Duncan 2    20 Jan 1966
+    Larry Jones 3223 20 Dec 1946
+  
+51. sh-4.2$ sort -k3 -n xFile123compact
+    John Duncan 2    20 Jan 1966
+    John Smith  1222 26 Apr 1956
+    Lisa Sue    1222 4  Jul 1980
+    Tony Jones  2152 20 Mar 1950
+    Larry Jones 3223 20 Dec 1946
+  Ans -> the sort utility sorts lexicographically, not
+         numerically, unless specified otherwise. Which is why we use the -n option 
+
+52.a) sh-4.2$ sort -k6 -n xFile123compact
+      Larry Jones 3223 20 Dec 1946
+      Tony Jones  2152 20 Mar 1950
+      John Smith  1222 26 Apr 1956
+      John Duncan 2    20 Jan 1966
+      Lisa Sue    1222 4  Jul 1980
+   b) sh-4.2$ sort -k6 -n -r xFile123compact
+      Lisa Sue    1222 4  Jul 1980
+      John Duncan 2    20 Jan 1966
+      John Smith  1222 26 Apr 1956
+      Tony Jones  2152 20 Mar 1950
+      Larry Jones 3223 20 Dec 1946
+
+53. sh-4.2$ sort -k5 xFile123compact
+    John Smith  1222 26 Apr 1956
+    Larry Jones 3223 20 Dec 1946
+    John Duncan 2    20 Jan 1966
+    Lisa Sue    1222 4  Jul 1980
+    Tony Jones  2152 20 Mar 1950
+
+54. sh-4.2$ sort -k5 -M xFile123compact
+    John Duncan 2    20 Jan 1966
+    John Smith  1222 26 Apr 1956
+    Larry Jones 3223 20 Dec 1946
+    Lisa Sue    1222 4  Jul 1980
+    Tony Jones  2152 20 Mar 1950
+  Ans -> again, the file was sorted lexicographically by the sort utility. We need the -m 
+	   option to specify that we want the list sorted by a monthly manner 
+
+55. sh-4.2$ egrep 2 xFile123compact
+    John Duncan 2    20 Jan 1966
+    John Smith  1222 26 Apr 1956
+    Larry Jones 3223 20 Dec 1946
+    Lisa Sue    1222 4  Jul 1980
+    Tony Jones  2152 20 Mar 1950
+
+56. sh-4.2$ egrep 2 -w xFile123compact
+    John Duncan 2    20 Jan 1966
+
+57. sh-4.2$ egrep 195. xFile123compact
+    John Smith  1222 26 Apr 1956
+    Tony Jones  2152 20 Mar 1950
+
+58. sh-4.2$ egrep 195. xFile123compact | wc -l
+    2
+
+59. sh-4.2$ wc -l classlist
+    152 classlist
+
+60. sh-4.2$ egrep Hussain -w classlist
+    aah*            *********       Hussain  Abdul Ahad
+    sayedah         *********       Hussain  Sayeda
+
+61.a) sh-4.2$ egrep Li classlist
+      bliu**          *********       Liu      Bin
+      bryan***        *********       Li       Bryan
+      jamesliu        *********       Liu      Junrui
+      jl****          *********       Liang    Siyu
+      kuku            *********       Zheku    Liran
+      lisal**         *********       Luong    Lisa
+    Ans -> Other people whose family names arent Li are displayed because we didn't do a
+           whole word match for Li. So the others that appear have a "Li" in their info
+           somewhere
+   b) sh-4.2$ egrep Li -w classlist
+      bryan***        *********       Li       Bryan
+
+62.a) sh-4.2$ egrep Wang -w classlist | wc -l
+      5
+   b) sh-4.2$ egrep Wang -w classlist
+      ge*ffrey        *********       Wang     Geoffrey
+      wby***          *********       Wang     Boyuan
+      yu******        *********       Wang     Xiaoji
+      zihanw          *********       Wang     Zihan
+      zippo           *********       Wang     Zepu
+
+63.a) sh-4.2$ egrep Patel -w classlist | wc -l
+      6
+   b) sh-4.2$ egrep Patel -w classlist
+      aman****        *********       Patel    Aman
+      hp****          *********       Patel    Harshil
+      prince**        *********       Patel    Prince
+      rushildp        *********       Patel    Rushilkumar
+      urvish**        *********       Patel    Urvish
+      vrajesh*        *********       Patel    Vrajesh
+
+64. sh-4.2$ egrep Wong -w classlist | wc -l
+    2
+
+65.a) sh-4.2$ egrep W[ao]ng -w classlist | wc -l
+      7
+   b) sh-4.2$ egrep W[ao]ng -w classlist
+      ge*ffrey        *********       Wang     Geoffrey
+      wby***          *********       Wang     Boyuan
+      yu******        *********       Wang     Xiaoji
+      zihanw          *********       Wang     Zihan
+      zippo           *********       Wang     Zepu
+      added           *********       Wong    FengC
+      cse***          *********       Wong    JunXiu
+   c) sh-4.2$ egrep Ch[ae]n -w classlist
+      chenj***        *********       Chen     Junyan
+      lydiaxc         *********       Chen     Xuan
+      addedB          *********       Chan    Jeck
+
+66. Observed: sh-4.2$ cut -f 1 classlist
+	      sh-4.2$ cut -f 3 classlist
+              sh-4.2$ cut -f 1-3 classlist
+	      sh-4.2$ cut -f 1,3 classlist
+    Issued: sh-4.2$ cut -f 3,4 classlist > tmp
+    Viewed tmp: sh-4.2$ more tmp
+    Observed: sh-4.2$ cat classlist | sort -k 3 | cut -f 3,4
+
+67. sh-4.2$ cp /eecs/dept/course/2019-20/W/2030tmp/lyrics .
+    sh-4.2$ egrep the lyrics
+    #So turn off the light, 1980
+    Say all your prayers and then,
+    Beautiful mermaids will swim through the sea,
+    And you will be swimming there too.
+    sea 1980 I got there by chance.
+
+68. sh-4.2$ egrep the -w lyrics
+    #So turn off the light, 1980
+    Beautiful mermaids will swim through the sea,
+
+69. sh-4.2$ egrep the -w -v lyrics
+    Well you know it's your bedtime,
+    Say all your prayers and then,
+    Oh you sleepy young 1970 heads dream of wonderful things,
+    And you will be swimming there too.
+    sea 1980 I got there by chance.
+
+70. sh-4.2$ egrep [0-9] lyrics
+    #So turn off the light, 1980
+    Oh you sleepy young 1970 heads dream of wonderful things,
+    sea 1980 I got there by chance.
+
+71. sh-4.2$ egrep 1980 -w lyrics
+    #So turn off the light, 1980
+    sea 1980 I got there by chance.
+
+72. sh-4.2$ egrep [1980]$ lyrics
+    #So turn off the light, 1980
+
+73. sh-4.2$ egrep sea -w lyrics
+    Beautiful mermaids will swim through the sea,
+    sea 1980 I got there by chance.
+
+74. sh-4.2$ egrep ^[sea] lyrics
+    sea 1980 I got there by chance.
+
+75. sh-4.2$ egrep ^.nd -w lyrics
+    And you will be swimming there too.
+
+76. sh-4.2$ egrep [ABCD] lyrics
+    Beautiful mermaids will swim through the sea,
+    And you will be swimming there too.
+
+77. sh-4.2$ cd ..
+
+78. sh-4.2$ find . -name "xFile?"
+    ./lab7working/xFile2
+    ./lab7working/xFile3
+    ./lab7working/xFile1
+  Ans -> the filename wildcard '?' was used which represents a single character, so it makes 
+         sense that only xFile1-3 was displayed
+
+79. sh-4.2$ find . -name "xFile*"
+    ./lab7working/xFile2
+    ./lab7working/xFile3
+    ./lab7working/xFile1
+    ./lab7working/xFile123
+    ./lab7working/xFile123compact
+  Ans -> the filename wildcard '*' was used, which represents whole names, so essentially
+           anything that contained the sequence "xFile" was displayed 
+
+80.a) sh-4.2$ find . -name "xFile*" -exec mv {} {}.Lab7 \;
+    Ans -> find files in current starting with "xFile", followed by a whole name 
+           and rename them to end with '.Lab7', using the mv utility
+   b) sh-4.2$ ls lab7working
+      classlist  lyrics  tmp  xFile123compact.Lab7  xFile123.Lab7  xFile1.Lab7  xFile2.Lab7  xFile3.Lab7
+   c) sh-4.2$ find . -name "xFile*" -exec chmod 775 {} \;
+    Ans -> find files in current starting with "xFile", followed by a whole name, and change 
+           their permission mode to rwxrwxr-x, using the chmod utility 
+   d) sh-4.2$ ls -l lab7working
+      total 44
+      -rwx------ 1 sayedah ugrad 9169 Mar 31 11:29 classlist
+      -rwx------ 1 sayedah ugrad  269 Mar 31 11:52 lyrics
+      -rw------- 1 sayedah ugrad 6008 Mar 31 11:46 tmp
+      -rwxrwxr-x 1 sayedah ugrad  145 Mar 31 10:28 xFile123compact.Lab7
+      -rwxrwxr-x 1 sayedah ugrad  377 Mar 31 10:20 xFile123.Lab7
+      -rwxrwxr-x 1 sayedah ugrad  168 Mar 31 11:02 xFile1.Lab7
+      -rwxrwxr-x 1 sayedah ugrad  145 Mar 31 09:41 xFile2.Lab7
+      -rwxrwxr-x 1 sayedah ugrad   87 Mar 31 09:41 xFile3.Lab7
+
+
+------------------------------------------ Part II ------------------------------------------
+
+81.a) sh-4.2$ ls *
+      classlist  lyrics  tmp  xFile123compact.Lab7  xFile123.Lab7  xFile1.Lab7  xFile2.Lab7  xFile3.Lab7
+
+   b) sh-4.2$ ls xFile*.Lab7
+      xFile123compact.Lab7  xFile123.Lab7  xFile1.Lab7  xFile2.Lab7  xFile3.Lab7
+
+   c) sh-4.2$ ls xFile?.Lab7
+      xFile1.Lab7  xFile2.Lab7  xFile3.Lab7
+    Ans -> the reason why xFile123.Lab7 and xFile123compact.Lab7 are not listed is because
+           we used the filename wildcase '?' which is substitued for single characters only.
+	   '1', '2', and '3' fit that criteria, but not '123compact' or '123'. 
+
+   d) sh-4.2$ ls xFile???.Lab7
+      xFile123.Lab7
+    Ans -> because of '???', now we're only accepting 3 single characters strictly, following
+           "xFile" 
+
+   e) sh-4.2$ ls xFile[1,3].Lab7
+      xFile1.Lab7  xFile3.Lab7
+      Ans -> according to regular expression syntax, the [1,3] states we're asking for the 
+             listed numbers proceeding "xFile". It is not a range hence why xFile2 was
+             not included. It's not a wild card either so we dont have to search for any 
+             other files 
+   f) sh-4.2$ ls xFile[1-3].Lab7
+      xFile1.Lab7  xFile2.Lab7  xFile3.Lab7
+   g) sh-4.2$ wc -l xFile?.Lab7
+      6 xFile1.Lab7
+      5 xFile2.Lab7
+      3 xFile3.Lab7
+      14 total
+   h) sh-4.2$ wc -l xFile???.Lab7
+      13 xFile123.Lab7
+   i) sh-4.2$ wc -l xFile[1,3].Lab7
+      6 xFile1.Lab7
+      3 xFile3.Lab7
+      9 total
+   j) sh-4.2$ wc -l xFile[1-3].Lab7
+      6 xFile1.Lab7
+      5 xFile2.Lab7
+      3 xFile3.Lab7
+      14 total
+
+82.a) sh-4.2$ echo "Hello, now is $(date). Have a good day"
+      Hello, now is Tue Mar 31 14:31:32 EDT 2020. Have a good day
+   b) sh-4.2$ echo "There are $(wc -l classlist | cut -f1 -d" ") students in EECS2031M"
+      There are 152 students in EECS2031M
+   c) sh-4.2$ echo "There are $(egrep Wang -w classlist | wc -l) students in EECS2031M with family name Wang"
+      There are 5 students in EECS2031M with family name Wang
+
+83.a) sh-4.2$ egrep -w Leung classlist
+      sh-4.2$ echo $?
+      1
+   b) sh-4.2$ egrep -w Zhang classlist
+      mark*zzx        *********       Zhang    Zhengxiao
+      sh-4.2$ echo $?
+      0
+   c) sh-4.2$ egrep -w Leung classlist && echo HELLO
+    Ans -> the reason HELLO is not printed is because egrep -w Leung classlist was 
+           unsuccessful, returning an exit code of 1. By the definition of the && token, the
+           echo command could not execute. 
+   d) sh-4.2$ egrep -w Zhang classlist && echo HELLO
+      mark*zzx        *********       Zhang    Zhengxiao
+      HELLO
+    Ans -> egrep -w Zhang classlist was successful since there was a Zhang in the classlist.
+           The command returned an exit code of 0 so the && token allowed the next command
+           to proceed, printing HELLO with echo. 
+   e) sh-4.2$ egrep -w Leung classlist || echo HELLO
+      HELLO
+    Ans -> egrep -w Leung classlist was unsuccessful, returning an exit code of 1. The || token
+           allowed the next command to execute due to this. Thus HELLO was printed 
+
+   f) sh-4.2$ egrep -w Zhang classlist || echo HELLO
+      mark*zzx        *********       Zhang    Zhengxiao
+    Ans -> egrep -w Zhang classlist was successful, returning an exit code of 0. The || token
+           only allow the next command to execute if the previous one was unsuccesful. This 
+           wasnt the case, so HELLO wasnt printed
+
+84.a) sh-4.2$ courseN=EECS2031M
+      sh-4.2$ echo 3 * 4 = 12, course name is $courseN - today is 'date', bye
+      3 classlist date lyrics tmp xFile123compact.Lab7 xFile123.Lab7 xFile1.Lab7 xFile2.Lab7 xFile3.Lab7 4 = 12, course name is EECS2031M - today is date, bye
+   b) sh-4.2$ echo ' 3 * 4 = 12, course name is $courseN - today is 'date', bye '
+      3 * 4 = 12, course name is $courseN - today is date, bye
+   c) sh-4.2$ echo " 3 * 4 = 12, course name is $courseN - today is 'date', bye "
+      3 * 4 = 12, course name is EECS2031M - today is 'date', bye
+
+
+    
